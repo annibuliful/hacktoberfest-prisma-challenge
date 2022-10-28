@@ -1,5 +1,7 @@
 # Hacktoberfest 2022 Thailand Prisma ORM challenge
 
+**Please Fork this repo for creating PR**
+
 ## Setup
 
 1. install dependecies
