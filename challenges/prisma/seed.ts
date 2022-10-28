@@ -15,6 +15,8 @@ const PRODUCT_A_ID = 'PRODUCT_A_ID';
 const PRODUCT_B_ID = 'PRODUCT_B_ID';
 const PRODUCT_C_ID = 'PRODUCT_C_ID';
 const PRODUCT_D_ID = 'PRODUCT_D_ID';
+const PRODUCT_E_ID = 'PRODUCT_E_ID';
+const PRODUCT_F_ID = 'PRODUCT_F_ID';
 
 export function cleanupDb<T extends PrismaClient>(prismaClient: T) {
   return async (task: TaskInnerAPI) => {
@@ -99,7 +101,28 @@ tasuku('Running seed', async ({ task }) => {
         },
       });
       setOutput('created product d');
+
+      setOutput('creating product e');
+      await tx.product.create({
+        data: {
+          id: PRODUCT_E_ID,
+          name: 'PRODUCT_E_NAME',
+          price: 20,
+        },
+      });
+      setOutput('created product e');
+
+      setOutput('creating product f');
+      await tx.product.create({
+        data: {
+          id: PRODUCT_F_ID,
+          name: 'PRODUCT_F_NAME',
+          price: 90,
+        },
+      });
+      setOutput('created product f');
     });
+
     setStatus('create products are completed');
   });
 
