@@ -45,3 +45,14 @@
    **yarn**
    `yarn run studio`
    <br/>
+   <img src="images/prisma-studio.png" alt="prisma-studio" style="width:200px;"/>
+
+## Challenge Questions
+
+1. count how many delivered order
+2. count how many processing order
+3. count how many delivered orders that have product a
+4. get all products that have price greater than 30
+5. get all products name that have price less than or equal 30, and select only name
+
+## How to create PR
