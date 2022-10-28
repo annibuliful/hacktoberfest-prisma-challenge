@@ -148,6 +148,103 @@ tasuku('Running seed', async ({ task }) => {
         },
       });
       setOutput('created order two');
+
+      setOutput('creating order three');
+      await tx.order.create({
+        data: {
+          status: OrderStatus.DELIVERED,
+          orderItems: {
+            create: [
+              {
+                productId: PRODUCT_A_ID,
+                quantity: 8,
+              },
+              {
+                productId: PRODUCT_B_ID,
+                quantity: 1,
+              },
+              {
+                productId: PRODUCT_C_ID,
+                quantity: 9,
+              },
+            ],
+          },
+        },
+      });
+      setOutput('created order three');
+
+      setOutput('creating order four');
+      await tx.order.create({
+        data: {
+          status: OrderStatus.CANCELLED,
+          orderItems: {
+            create: [
+              {
+                productId: PRODUCT_A_ID,
+                quantity: 8,
+              },
+              {
+                productId: PRODUCT_D_ID,
+                quantity: 10,
+              },
+            ],
+          },
+        },
+      });
+      setOutput('created order four');
+
+      setOutput('creating order five');
+      await tx.order.create({
+        data: {
+          status: OrderStatus.DELIVERED,
+          orderItems: {
+            create: [
+              {
+                productId: PRODUCT_A_ID,
+                quantity: 1,
+              },
+              {
+                productId: PRODUCT_D_ID,
+                quantity: 2,
+              },
+            ],
+          },
+        },
+      });
+      setOutput('created order five');
+
+      setOutput('creating order six');
+      await tx.order.create({
+        data: {
+          status: OrderStatus.DELIVERED,
+          orderItems: {
+            create: [
+              {
+                productId: PRODUCT_D_ID,
+                quantity: 3,
+              },
+            ],
+          },
+        },
+      });
+      setOutput('created order six');
+
+      setOutput('creating order six');
+      await tx.order.create({
+        data: {
+          status: OrderStatus.DELIVERED,
+          orderItems: {
+            create: [
+              {
+                productId: PRODUCT_A_ID,
+                quantity: 12,
+              },
+            ],
+          },
+        },
+      });
+      setOutput('created order six');
+
       setStatus('created orders completed');
     });
   });
