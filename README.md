@@ -50,6 +50,7 @@
 
    **yarn**
    `yarn run studio`
+
    <br/>
    <img src="images/prisma-studio.png" alt="prisma-studio" style="width:200px;"/>
 
