@@ -3,6 +3,7 @@
 ## Setup
 
 1. install dependecies
+
    **pnpm**
    `pnpm install`
 
@@ -14,6 +15,7 @@
    <br/>
 
 2. run migration files
+
    **pnpm**
    `pnpm run migrate`
 
@@ -25,6 +27,7 @@
    <br/>
 
 3. run seeding data to SQLite database
+
    **pnpm**
    `pnpm run seed`
 
@@ -36,6 +39,7 @@
    <br/>
 
 4. run prisma studio to check
+
    **pnpm**
    `pnpm run studio`
 
@@ -56,3 +60,5 @@
 5. get all products name that have price less than or equal 30, and select only name
 
 ## How to create PR
+
+https://www.loom.com/share/7b4dbd89758a4f049ef6bb06e86b9680
