@@ -49,9 +49,8 @@ async function main() {
     const productsThatPriceGreaterThanThirty = await prismaClient;
 
     deepEqual(productsThatPriceGreaterThanThirty, [
-      { id: 'PRODUCT_A_ID', name: 'PRODUCT_A_NAME', price: 10 },
-      { id: 'PRODUCT_B_ID', name: 'PRODUCT_B_NAME', price: 20 },
-      { id: 'PRODUCT_E_ID', name: 'PRODUCT_E_NAME', price: 20 },
+      { id: 'PRODUCT_D_ID', name: 'PRODUCT_D_NAME', price: 40 },
+      { id: 'PRODUCT_F_ID', name: 'PRODUCT_F_NAME', price: 90 },
     ]);
 
     // TODO: get all products name that have price less than or equal 30, and select only name
