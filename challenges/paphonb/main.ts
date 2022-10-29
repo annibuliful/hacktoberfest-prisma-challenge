@@ -29,33 +29,63 @@ const prismaClient = new PrismaClient();
 
 async function main() {
   try {
-    // TODO: count how many delivered order
-    const deliveredCount = await prismaClient;
+    const deliveredCount = await prismaClient.order.count({
+      where: {
+        status: "DELIVERED"
+      }
+    });
 
     equal(deliveredCount, 5);
 
-    // TODO: count how many processing order
-    const processingCount = await prismaClient;
+    const processingCount = await prismaClient.order.count({
+      where: {
+        status: "PROCESSING"
+      }
+    });
 
     equal(processingCount, 1);
 
     // TODO: count how many delivered orders that have product a
     const deliveredOrdersCountThatContainProductA =
-      await prismaClient;
+      await prismaClient.order.count({
+        where: {
+          status: "DELIVERED",
+          orderItems: {
+            some: {
+              product: {
+                id: PRODUCT_A_ID
+              }
+            }
+          }
+        }
+      });
 
     equal(deliveredOrdersCountThatContainProductA, 4);
 
-    // TODO: get all products that have price greater than 30
-    const productsThatPriceGreaterThanThirty = await prismaClient;
+    const productsThatPriceGreaterThanThirty = await prismaClient.product.findMany({
+      where: {
+        price: {
+          gt: 30
+        }
+      }
+    });
 
     deepEqual(productsThatPriceGreaterThanThirty, [
       { id: 'PRODUCT_D_ID', name: 'PRODUCT_D_NAME', price: 40 },
       { id: 'PRODUCT_F_ID', name: 'PRODUCT_F_NAME', price: 90 },
     ]);
 
-    // TODO: get all products name that have price less than or equal 30, and select only name
     const productsNameThatPriceLessThanOrEqualThirty =
-      await prismaClient;
+      await prismaClient.product.findMany({
+        where: {
+          price: {
+            lte: 30
+          }
+        },
+        select: {
+          name: true
+        }
+      });
 
     deepEqual(productsNameThatPriceLessThanOrEqualThirty, [
       { name: 'PRODUCT_A_NAME' },
